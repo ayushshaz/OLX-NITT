@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">OLX-NITT</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="olx_nitt">OLX-NITT</string>
+    <string name="Nitt_pride_Of_India">NITT- The pride of India</string>
+    <string name="nitt_leading_marketplace">NITT\'s leading \nmarketplace</string>
+    <string name="continue_with_google">Continue With Google</string>
+    <string name="continue_with_facebook">Continue with Facebook</string>
+    <string name="terms">If you are accepting\nOLX-NITT terms and condition and privacy policy</string>
+
+    <string name="facebook_app_id">2369580070014902</string>
+    <string name="fb_login_protocol_scheme">fb2369580070014902</string>
+    <string name="find_items">Find Books, Cycles and many more .......</string>
+    <string name="browse_categories">Browse Categories</string>
+    <string name="title_sell">Sell</string>
+    <string name="offering">What are you offering ?</string>
+</resources>

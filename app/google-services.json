@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "133239066994",
+    "firebase_url": "https://olx-nitt.firebaseio.com",
+    "project_id": "olx-nitt",
+    "storage_bucket": "olx-nitt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133239066994:android:68c3cab75e4cbaaec0cdeb",
+        "android_client_info": {
+          "package_name": "com.example.olx_nitt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "133239066994-a3g6vf7aedk1h1lpkp0kedcpaehfrp1h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_cgVRBzu2McdE2ps7QTfylG1GYbm9Y2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "133239066994-a3g6vf7aedk1h1lpkp0kedcpaehfrp1h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
