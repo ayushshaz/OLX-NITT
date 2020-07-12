@@ -152,6 +152,7 @@ class UploadPhotoFragment : BaseFragment(), View.OnClickListener,
     }
 
     private fun postAd() {
+        showProgressBar()
         val documentId = db.collection(arguments?.getString(Constants.KEY)!!).document().id
         val documentData = hashMapOf(
             Constants.ADDRESS to arguments?.getString(Constants.ADDRESS),
@@ -181,6 +182,7 @@ class UploadPhotoFragment : BaseFragment(), View.OnClickListener,
             .document(id.toString())
             .update(docData)
             .addOnSuccessListener {
+                hideProgressBar()
                 Toast.makeText(requireActivity(), "Ad Posted Succcessfully !!", Toast.LENGTH_SHORT)
                     .show()
             }
