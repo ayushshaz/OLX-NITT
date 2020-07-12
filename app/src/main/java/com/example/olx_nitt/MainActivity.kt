@@ -1,5 +1,7 @@
 package com.example.olx_nitt
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -7,8 +9,12 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.olx_nitt.utilities.Constants
+import com.example.olx_nitt.utilities.OnActivityResultData
+import net.alhazmy13.mediapicker.Image.ImagePicker
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
+    lateinit var onActivityResultData : OnActivityResultData
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,4 +29,20 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
+
+    fun getOnActivityResult(onActivityResultData: OnActivityResultData){
+        this.onActivityResultData=onActivityResultData
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode==Activity.RESULT_OK){
+            var mPaths = data?.getStringArrayListExtra(ImagePicker.EXTRA_IMAGE_PATH)
+            val bundle = Bundle()
+            bundle.putStringArrayList(Constants.IMAGE_PATHS,mPaths)
+            onActivityResultData.resultData(bundle)
+        }
+    }
+
+
 }

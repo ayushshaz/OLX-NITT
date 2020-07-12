@@ -45,7 +45,7 @@ class CategoriesAdapter(var categoriesList: MutableList<CategoriesModel>,
     }
 
     class Viewholder(itemView: View):RecyclerView.ViewHolder(itemView) {
-        val textViewTitle=itemView.findViewById<TextView>(R.id.tvTitle) //where is this?
+        val textViewTitle=itemView.findViewById<TextView>(R.id.tvTitle)
         val imageView=itemView.findViewById<CircleImageView>(R.id.ivIcon)
     }
     interface ItemClickListener {

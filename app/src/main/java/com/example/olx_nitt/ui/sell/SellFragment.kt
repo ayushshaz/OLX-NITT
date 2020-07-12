@@ -4,20 +4,28 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.olx_nitt.BaseFragment
 import com.example.olx_nitt.R
 import com.example.olx_nitt.model.CategoriesModel
 import com.example.olx_nitt.ui.home.adapter.CategoriesAdapter
+import com.example.olx_nitt.ui.includeDetails.IncludeDetailFragment
 import com.example.olx_nitt.ui.sell.adapter.SellAdapter
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_sell.*
 
-class SellFragment : Fragment(), CategoriesAdapter.ItemClickListener,
+class SellFragment : BaseFragment(), CategoriesAdapter.ItemClickListener,
     SellAdapter.ItemClickListener {
+
+
     val db= FirebaseFirestore.getInstance()
     private lateinit var categoriesModel:MutableList<CategoriesModel>
+
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -33,7 +41,9 @@ class SellFragment : Fragment(), CategoriesAdapter.ItemClickListener,
         getCategoryList()
     }
     private fun getCategoryList() {
+        showProgressBar()
         db.collection("Categories").get().addOnSuccessListener {
+            hideProgressBar()
             categoriesModel = it.toObjects(CategoriesModel::class.java)
             setAdapter()
         }
@@ -46,6 +56,13 @@ class SellFragment : Fragment(), CategoriesAdapter.ItemClickListener,
     }
 
     override fun onItemClick(position: Int) {
+       // Toast.makeText(context, "Its Suppose to move to includeDetailsFragment", Toast.LENGTH_SHORT).show()
+        //working now need to just open the fragment to include details  Sir in the xml
+
+        //      childFragmentManager.beginTransaction().replace(R.id.nav_host_fragment,
+        //          IncludeDetailFragment()
+        //      ).commit()
+        findNavController().navigate(R.id.action_sell_to_include_details)
 
     }
 

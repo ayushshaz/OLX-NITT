@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.olx_nitt.BaseFragment
 import com.example.olx_nitt.R
 import com.example.olx_nitt.model.CategoriesModel
 import com.example.olx_nitt.ui.home.adapter.CategoriesAdapter
@@ -20,7 +21,7 @@ import com.example.olx_nitt.utilities.SharedPref
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_home.*
 
-class HomeFragment : Fragment(), CategoriesAdapter.ItemClickListener {
+class HomeFragment : BaseFragment(), CategoriesAdapter.ItemClickListener {
     private lateinit var categoriesAdapter: CategoriesAdapter
     val db=FirebaseFirestore.getInstance()
     private lateinit var categoriesModel:MutableList<CategoriesModel>
@@ -62,7 +63,7 @@ class HomeFragment : Fragment(), CategoriesAdapter.ItemClickListener {
     private fun filterList(toString: String) {
         var temp:MutableList<CategoriesModel> = ArrayList()
         for(data in categoriesModel){
-            if(data.key.contains(toString.capitalize())||data.key.contains(toString)){
+            if(data.key.contains(toString().capitalize())||data.key.contains(toString())){
                 temp.add(data)
             }
         }
@@ -70,7 +71,9 @@ class HomeFragment : Fragment(), CategoriesAdapter.ItemClickListener {
     }
 
     private fun getCategoryList() {
+        showProgressBar()
         db.collection("Categories").get().addOnSuccessListener {
+            hideProgressBar()
             categoriesModel = it.toObjects(CategoriesModel::class.java)
             setAdapter()
         }
@@ -83,6 +86,7 @@ class HomeFragment : Fragment(), CategoriesAdapter.ItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-        Toast.makeText(context,"Hey "+position,Toast.LENGTH_SHORT).show()
+       // Toast.makeText(context,"Hey "+position,Toast.LENGTH_SHORT).show()
+
     }
 }
