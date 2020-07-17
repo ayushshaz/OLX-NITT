@@ -42,4 +42,11 @@
     <string name="cancel">Cancel</string>
     <string name="Close">close</string>
     <string name="title_my_Ads">My Ads</string>
+    <string name="details">Details</string>
+    <string name="address_simple">Address</string>
+    <string name="description">Description</string>
+    <string name="phone_simple">Phone</string>
+    <string name="year_simple">Year</string>
+    <string name="call">Call</string>
+    <string name="title_details">Details</string>
 </resources>

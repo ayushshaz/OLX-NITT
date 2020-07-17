@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.olx_nitt.BaseFragment
 import com.example.olx_nitt.R
@@ -68,6 +69,9 @@ class MyAdsFragment : BaseFragment(), MyAdsAdapter.ItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-
+        var bundle = Bundle()
+        bundle.putString(Constants.KEY,documentDataList.get(position).type)
+        bundle.putString(Constants.DOCUMENT_ID,documentDataList.get(position).id)
+        findNavController().navigate(R.id.action_my_ads_to_details,bundle)
     }
 }

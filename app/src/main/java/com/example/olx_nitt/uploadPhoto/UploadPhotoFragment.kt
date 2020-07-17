@@ -13,6 +13,7 @@ import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.olx_nitt.BaseFragment
 import com.example.olx_nitt.MainActivity
@@ -166,6 +167,7 @@ class UploadPhotoFragment : BaseFragment(), View.OnClickListener,
             Constants.PHONE to arguments?.getString(Constants.PHONE),
             Constants.PRICE to arguments?.getString(Constants.PRICE),
             Constants.TYPE to arguments?.getString(Constants.KEY),
+            Constants.YEAR to arguments?.getString(Constants.YEAR),
             Constants.Id to documentId,
             Constants.USER_ID to SharedPref(requireActivity()).getString(Constants.USER_ID),
             Constants.CREATED_DATE to Date(),
@@ -187,8 +189,8 @@ class UploadPhotoFragment : BaseFragment(), View.OnClickListener,
             .update(docData)
             .addOnSuccessListener {
                 hideProgressBar()
-                Toast.makeText(requireActivity(), "Ad Posted Succcessfully !!", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(requireActivity(), "Ad Posted Succcessfully !!", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_photo_my_ads)
             }
     }
 

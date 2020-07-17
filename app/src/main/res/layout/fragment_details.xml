@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="?actionBarSize">
+
+    <ScrollView
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_marginStart="@dimen/dp_4"
+                android:layout_marginEnd="@dimen/dp_4"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_240"/>
+
+            <LinearLayout
+                android:layout_margin="@dimen/dp_8"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPrice"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/dp_4"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:text="₹100.00"
+                    android:textColor="@color/Black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTitle"
+                    android:layout_marginStart="@dimen/dp_4"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text=""
+                    android:textColor="@color/Black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvBrand"
+                    android:layout_marginStart="@dimen/dp_4"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text=""
+                    android:textColor="@color/Black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDate"
+                    android:layout_marginStart="@dimen/dp_4"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text=""
+                    android:layout_gravity="end"
+                    android:textColor="@color/Black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <View
+                android:background="@color/Black"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_2"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_margin="@dimen/dp_8"
+                android:text="@string/details"
+                android:textStyle="bold"
+                android:textColor="@color/Black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llkmDriven"
+                android:visibility="gone"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/dp_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_margin="@dimen/dp_8"
+                    android:text="@string/kmDriven"
+                    android:textColor="@color/Black"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvKmDriven"
+                    android:layout_margin="@dimen/dp_8"
+                    android:text="@string/details"
+                    android:textColor="@color/Black"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="end|center"
+                    android:gravity="end|center"
+                    android:layout_height="wrap_content"/>
+                
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/dp_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_margin="@dimen/dp_8"
+                    android:text="@string/year_simple"
+                    android:textColor="@color/Black"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvYear"
+                    android:layout_margin="@dimen/dp_8"
+                    android:text="@string/details"
+                    android:textColor="@color/Black"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="end|center"
+                    android:gravity="end|center"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/dp_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_margin="@dimen/dp_8"
+                    android:text="@string/address_simple"
+                    android:textColor="@color/Black"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvAddress"
+                    android:layout_margin="@dimen/dp_8"
+                    android:text="@string/details"
+                    android:textColor="@color/Black"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="end|center"
+                    android:gravity="end|center"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/dp_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_margin="@dimen/dp_8"
+                    android:text="@string/description"
+                    android:textColor="@color/Black"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDescription"
+                    android:layout_margin="@dimen/dp_8"
+                    android:text="@string/details"
+                    android:textColor="@color/Black"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="end|center"
+                    android:gravity="end|center"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/dp_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_margin="@dimen/dp_8"
+                    android:text="@string/phone_simple"
+                    android:textColor="@color/Black"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPhone"
+                    android:layout_margin="@dimen/dp_8"
+                    android:text="@string/details"
+                    android:textColor="@color/Black"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="end|center"
+                    android:gravity="end|center"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </LinearLayout>
+        
+    </ScrollView>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvCall"
+        android:background="@color/Black"
+        android:textStyle="bold"
+        android:text="@string/call"
+        android:textColor="@android:color/white"
+        android:textAllCaps="true"
+        android:padding="@dimen/dp_12"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"/>
+</RelativeLayout>

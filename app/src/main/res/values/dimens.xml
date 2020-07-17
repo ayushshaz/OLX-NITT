@@ -24,4 +24,5 @@
     <dimen name="dp_20">20dp</dimen>
     <dimen name="dp_100">100dp</dimen>
     <dimen name="dp_2">2dp</dimen>
+    <dimen name="dp_240">240dp</dimen>
 </resources>

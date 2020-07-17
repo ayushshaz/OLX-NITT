@@ -63,6 +63,22 @@
         android:name="com.example.olx_nitt.myAds.MyAdsFragment"
         android:label="@string/title_my_Ads"
         tools:layout="@layout/fragment_myads">
+
+        <action
+            android:id="@+id/action_my_ads_to_details"
+            app:destination="@id/navigation_details"
+            app:popUpTo="@id/navigation_my_ads"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpToInclusive="false"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_details"
+        android:name="com.example.olx_nitt.ui.details.DetailsFragment"
+        android:label="@string/title_details"
+        tools:layout="@layout/fragment_details">
     </fragment>
 
 

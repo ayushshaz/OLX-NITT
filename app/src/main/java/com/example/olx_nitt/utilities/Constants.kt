@@ -1,6 +1,7 @@
 package com.example.olx_nitt.utilities
 
 object Constants {
+    val DOCUMENT_ID = "doc_id"
     val CATEGORIES = "Categories"
     val YEAR = "year"
     val CITY_NAME = "city_name"
