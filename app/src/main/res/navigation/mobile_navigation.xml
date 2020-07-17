@@ -29,7 +29,17 @@
         android:id="@+id/navigation_upload_photo"
         android:name="com.example.olx_nitt.uploadPhoto.UploadPhotoFragment"
         android:label="@string/upload_photo"
-        tools:layout="@layout/fragment_upload_photo" />
+        tools:layout="@layout/fragment_upload_photo">
+
+        <action
+            android:id="@+id/action_photo_my_ads"
+            app:destination="@id/navigation_my_ads"
+            app:popUpTo="@id/navigation_upload_photo"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpToInclusive="false"/>
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_include_details"
@@ -49,9 +59,11 @@
 
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.olx_nitt.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_my_ads"
+        android:name="com.example.olx_nitt.myAds.MyAdsFragment"
+        android:label="@string/title_my_Ads"
+        tools:layout="@layout/fragment_myads">
+    </fragment>
+
 
 </navigation>

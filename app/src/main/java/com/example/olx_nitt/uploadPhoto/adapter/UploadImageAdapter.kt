@@ -30,7 +30,7 @@ class UploadImageAdapter(internal var activity : Activity,
     }
 
     override fun getItemCount(): Int {
-        return imagesArrayList.size+2 //bcz icon will be added in last
+        return imagesArrayList.size+1 //bcz icon will be added in last
     }
 
     override fun onBindViewHolder(holder: Viewholder, position: Int) {

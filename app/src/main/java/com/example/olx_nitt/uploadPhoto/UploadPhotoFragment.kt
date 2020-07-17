@@ -1,7 +1,9 @@
 package com.example.olx_nitt.uploadPhoto
 
+import android.Manifest
 import android.content.Context.LAYOUT_INFLATER_SERVICE
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +12,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.olx_nitt.BaseFragment
 import com.example.olx_nitt.MainActivity
@@ -31,12 +34,13 @@ import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
 
+
 class UploadPhotoFragment : BaseFragment(), View.OnClickListener,
     UploadImageAdapter.ItemClickListener {
 
     private val imageUriList: ArrayList<String> = ArrayList()
     private var count = 0
-    private lateinit var uploadTask: UploadTask
+    private var uploadTask: UploadTask? = null
     private var imagesAdapter: UploadImageAdapter? = null
     private var selectedImagesArrayList: ArrayList<String> = ArrayList()
     private var outputFileUri: String? = null
@@ -61,7 +65,7 @@ class UploadPhotoFragment : BaseFragment(), View.OnClickListener,
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        recyclerView.layoutManager = GridLayoutManager(activity, 3)
+        recyclerView.layoutManager = GridLayoutManager(context, 3)
         storage = FirebaseStorage.getInstance()
         storageRef = storage.getReference()
         listener()
@@ -137,7 +141,7 @@ class UploadPhotoFragment : BaseFragment(), View.OnClickListener,
     private fun uploadImage(file: File, name: String, i: Int) {
         imageRef = storageRef.child("images/$name")
         uploadTask = imageRef.putFile(Uri.fromFile(file))
-        uploadTask.addOnSuccessListener(object : OnSuccessListener<UploadTask.TaskSnapshot> {
+        uploadTask!!.addOnSuccessListener( object : OnSuccessListener<UploadTask.TaskSnapshot> {
             override fun onSuccess(p0: UploadTask.TaskSnapshot?) {
                 imageRef.downloadUrl.addOnSuccessListener {
                     count++
@@ -179,7 +183,7 @@ class UploadPhotoFragment : BaseFragment(), View.OnClickListener,
             Constants.Id to id
         )
         db.collection(arguments?.getString(Constants.KEY)!!)
-            .document(id.toString())
+            .document(id)
             .update(docData)
             .addOnSuccessListener {
                 hideProgressBar()
@@ -203,10 +207,12 @@ class UploadPhotoFragment : BaseFragment(), View.OnClickListener,
             dialog?.dismiss()
         }
         textViewCamera?.setOnClickListener {
+            dialog?.dismiss()
             chooseImage(ImagePicker.Mode.CAMERA)
         }
         textViewGallery?.setOnClickListener {
-            chooseImage(ImagePicker.Mode.GALLERY)
+            dialog?.dismiss()
+            verifyStoragePermissions(this@UploadPhotoFragment)
         }
 
         dialog?.show()
@@ -232,5 +238,22 @@ class UploadPhotoFragment : BaseFragment(), View.OnClickListener,
 
     override fun onItemClick() {
         showBottomSheetDialog()
+    }
+
+    fun verifyStoragePermissions(activity: UploadPhotoFragment) {
+        // Check if we have write permission
+        val permission =
+            ActivityCompat.checkSelfPermission(
+                requireActivity(),
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            )
+        if (permission != PackageManager.PERMISSION_GRANTED)
+        {
+            // We don't have permission so prompt the user
+            Toast.makeText(context,"Permission denied", Toast.LENGTH_SHORT).show()
+        }
+        else{
+            chooseImage(ImagePicker.Mode.GALLERY)
+        }
     }
 }

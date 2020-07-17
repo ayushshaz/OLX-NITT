@@ -62,7 +62,10 @@ class SellFragment : BaseFragment(), CategoriesAdapter.ItemClickListener,
         //      childFragmentManager.beginTransaction().replace(R.id.nav_host_fragment,
         //          IncludeDetailFragment()
         //      ).commit()
-        findNavController().navigate(R.id.action_sell_to_include_details)
+
+        var bundle = Bundle() // Not adding bundle before was the reason for crashing ... The data was not getting updated in firebase and Homescreen use to open
+        bundle.putString("key",categoriesModel.get(position).key)
+        findNavController().navigate(R.id.action_sell_to_include_details,bundle)
 
     }
 

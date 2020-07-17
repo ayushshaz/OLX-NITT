@@ -22,4 +22,6 @@
     <dimen name="dp_18">18dp</dimen>
     <dimen name="dp_160">160dp</dimen>
     <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_100">100dp</dimen>
+    <dimen name="dp_2">2dp</dimen>
 </resources>

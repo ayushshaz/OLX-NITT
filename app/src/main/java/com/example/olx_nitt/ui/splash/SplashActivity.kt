@@ -116,16 +116,13 @@ class SplashActivity: BaseActivity() {
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+           Toast.makeText(applicationContext, "Permission denied", Toast.LENGTH_SHORT).show()
             return
         }
-        fusedLocationClient.requestLocationUpdates(locationRequest,locationCallback,null)
+        else{
+            fusedLocationClient.requestLocationUpdates(locationRequest,locationCallback,null)
+        }
+
 
     }
     private fun getLocationCallback() {
@@ -133,8 +130,8 @@ class SplashActivity: BaseActivity() {
             override fun onLocationResult(p0: LocationResult?) {
                 super.onLocationResult(p0)
                 val location=p0?.lastLocation
-                SharedPref(this@SplashActivity).setString(Constants.CITY_NAME,getCityName(location))
-               // Toast.makeText(this@SplashActivity,getCityName(location),Toast.LENGTH_SHORT).show()
+                //SharedPref(this@SplashActivity).setString(Constants.CITY_NAME,getCityName(location))
+               //Toast.makeText(this@SplashActivity,getCityName(location),Toast.LENGTH_SHORT).show()
                 if (SharedPref(this@SplashActivity).getString(Constants.USER_ID)?.isEmpty()!!){
                     startActivity(Intent(this@SplashActivity,LoginActivity::class.java))
                     finish()
@@ -145,13 +142,13 @@ class SplashActivity: BaseActivity() {
             }
         }
     }
-
+    //Sir it opened
     private fun getCityName(location: Location?): String {
         var cityName=""
         val geocoder= Geocoder(this, Locale.getDefault())
         try {
             val address=geocoder.getFromLocation(location?.latitude!!,location?.longitude!!,1)
-            cityName=address.get(0).locality
+            cityName=address[0].locality //but theres something wrong wit getting the location also sir in emulator its working fine because emulator doesnt require location okay sir
         }catch (e:IOException){
             Log.d("locationException","failed")
         }

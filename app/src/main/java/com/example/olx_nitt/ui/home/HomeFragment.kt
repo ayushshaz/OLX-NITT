@@ -22,9 +22,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment(), CategoriesAdapter.ItemClickListener {
-    private lateinit var categoriesAdapter: CategoriesAdapter
+    private var categoriesAdapter: CategoriesAdapter?=null
     val db=FirebaseFirestore.getInstance()
-    private lateinit var categoriesModel:MutableList<CategoriesModel>
+    private var categoriesModel:MutableList<CategoriesModel> = ArrayList()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -60,16 +60,6 @@ class HomeFragment : BaseFragment(), CategoriesAdapter.ItemClickListener {
         })
     }
 
-    private fun filterList(toString: String) {
-        var temp:MutableList<CategoriesModel> = ArrayList()
-        for(data in categoriesModel){
-            if(data.key.contains(toString().capitalize())||data.key.contains(toString())){
-                temp.add(data)
-            }
-        }
-        categoriesAdapter.updateList(temp)
-    }
-
     private fun getCategoryList() {
         showProgressBar()
         db.collection("Categories").get().addOnSuccessListener {
@@ -78,7 +68,15 @@ class HomeFragment : BaseFragment(), CategoriesAdapter.ItemClickListener {
             setAdapter()
         }
     }
-
+    private fun filterList(s: String) {
+        var temp:MutableList<CategoriesModel> = ArrayList()
+        for(data in categoriesModel){
+            if(data.key.contains(s.capitalize())||data.key.contains(s)){
+                temp.add(data)
+            }
+        }
+        categoriesAdapter?.updateList(temp)
+    }
     private fun setAdapter() {
         rv_categories.layoutManager = GridLayoutManager(context,3)
         categoriesAdapter = CategoriesAdapter(categoriesModel,this)

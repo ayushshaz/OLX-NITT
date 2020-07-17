@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_4"
+        android:background="@drawable/box_black_bg_white">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:scaleType="fitXY"
+                android:src="@drawable/facebook_icon"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dp_2"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="@dimen/dp_100"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.75"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_marginStart="@dimen/dp_4"
+                android:textStyle="bold"
+                android:id="@+id/tvPrice"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:textColor="@color/Black"
+                android:text="$100.0"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_marginStart="@dimen/dp_4"
+                android:id="@+id/tvAddress"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:textColor="@color/Black"
+                android:text="Amber-A, NIT Trichy"
+                android:layout_marginTop="@dimen/dp_4"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_marginStart="@dimen/dp_4"
+                android:id="@+id/tvBrand"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:textColor="@color/Black"
+                android:text="Facebook"
+                android:layout_marginTop="@dimen/dp_4"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_marginStart="@dimen/dp_4"
+                android:id="@+id/tvDate"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="wrap_content"
+                android:textColor="@color/Black"
+                android:text="25 Oct"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
