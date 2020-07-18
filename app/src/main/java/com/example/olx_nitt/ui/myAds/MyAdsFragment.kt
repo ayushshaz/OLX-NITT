@@ -1,4 +1,4 @@
-package com.example.olx_nitt.myAds
+package com.example.olx_nitt.ui.myAds
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.olx_nitt.BaseFragment
+import com.example.olx_nitt.ui.BaseFragment
 import com.example.olx_nitt.R
 import com.example.olx_nitt.model.DataItemModel
-import com.example.olx_nitt.myAds.adapter.MyAdsAdapter
+import com.example.olx_nitt.ui.myAds.adapter.MyAdsAdapter
 import com.example.olx_nitt.utilities.Constants
 import com.example.olx_nitt.utilities.SharedPref
 import com.google.firebase.firestore.FirebaseFirestore

@@ -1,8 +1,9 @@
-package com.example.olx_nitt
+package com.example.olx_nitt.ui
 
 import android.app.Dialog
 import android.view.Window
 import androidx.fragment.app.Fragment
+import com.example.olx_nitt.R
 
 open class BaseFragment :Fragment() {
     lateinit var mDialog:Dialog

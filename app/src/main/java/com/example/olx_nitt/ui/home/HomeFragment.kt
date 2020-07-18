@@ -1,18 +1,14 @@
 package com.example.olx_nitt.ui.home
 
-import android.graphics.ColorSpace
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.olx_nitt.BaseFragment
+import com.example.olx_nitt.ui.BaseFragment
 import com.example.olx_nitt.R
 import com.example.olx_nitt.model.CategoriesModel
 import com.example.olx_nitt.ui.home.adapter.CategoriesAdapter
@@ -41,7 +37,7 @@ class HomeFragment : BaseFragment(), CategoriesAdapter.ItemClickListener {
         getCategoryList()
         textListener()
     }
-
+    //Next two function for Search
     private fun textListener() {
 
         edSearch.addTextChangedListener(object:TextWatcher{
@@ -60,14 +56,6 @@ class HomeFragment : BaseFragment(), CategoriesAdapter.ItemClickListener {
         })
     }
 
-    private fun getCategoryList() {
-        showProgressBar()
-        db.collection("Categories").get().addOnSuccessListener {
-            hideProgressBar()
-            categoriesModel = it.toObjects(CategoriesModel::class.java)
-            setAdapter()
-        }
-    }
     private fun filterList(s: String) {
         var temp:MutableList<CategoriesModel> = ArrayList()
         for(data in categoriesModel){
@@ -77,6 +65,16 @@ class HomeFragment : BaseFragment(), CategoriesAdapter.ItemClickListener {
         }
         categoriesAdapter?.updateList(temp)
     }
+
+    private fun getCategoryList() {
+        showProgressBar()
+        db.collection("Categories").get().addOnSuccessListener {
+            hideProgressBar()
+            categoriesModel = it.toObjects(CategoriesModel::class.java)
+            setAdapter()
+        }
+    }
+
     private fun setAdapter() {
         rv_categories.layoutManager = GridLayoutManager(context,3)
         categoriesAdapter = CategoriesAdapter(categoriesModel,this)
@@ -84,7 +82,8 @@ class HomeFragment : BaseFragment(), CategoriesAdapter.ItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-       // Toast.makeText(context,"Hey "+position,Toast.LENGTH_SHORT).show()
-
+        val bundle = Bundle()
+        bundle.putString(Constants.KEY,categoriesModel.get(position).key)
+        findNavController().navigate(R.id.action_home_to_browse,bundle)
     }
 }

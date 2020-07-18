@@ -9,7 +9,15 @@
         android:id="@+id/navigation_home"
         android:name="com.example.olx_nitt.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_browse"
+            app:destination="@id/navigation_browse_category"
+            app:popUpTo="@id/navigation_home"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpToInclusive="false"/>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_sell"
@@ -27,7 +35,7 @@
 
     <fragment
         android:id="@+id/navigation_upload_photo"
-        android:name="com.example.olx_nitt.uploadPhoto.UploadPhotoFragment"
+        android:name="com.example.olx_nitt.ui.uploadPhoto.UploadPhotoFragment"
         android:label="@string/upload_photo"
         tools:layout="@layout/fragment_upload_photo">
 
@@ -60,7 +68,7 @@
 
     <fragment
         android:id="@+id/navigation_my_ads"
-        android:name="com.example.olx_nitt.myAds.MyAdsFragment"
+        android:name="com.example.olx_nitt.ui.myAds.MyAdsFragment"
         android:label="@string/title_my_Ads"
         tools:layout="@layout/fragment_myads">
 
@@ -75,10 +83,31 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_details"
-        android:name="com.example.olx_nitt.ui.details.DetailsFragment"
-        android:label="@string/title_details"
-        tools:layout="@layout/fragment_details">
+        android:id="@+id/navigation_browse_category"
+        android:name="com.example.olx_nitt.ui.browseCategory.BrowseCategoryFragment"
+        android:label="@string/title_browse"
+        tools:layout="@layout/fragment_browse">
+        <action
+            android:id="@+id/action_browse_to_details"
+            app:destination="@id/navigation_details"
+            app:popUpTo="@id/navigation_browse_category"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpToInclusive="false"/>
+    </fragment>
+
+     <fragment
+            android:id="@+id/navigation_details"
+            android:name="com.example.olx_nitt.ui.details.DetailsFragment"
+            android:label="@string/title_details"
+            tools:layout="@layout/fragment_details">
+     </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.olx_nitt.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile">
     </fragment>
 
 

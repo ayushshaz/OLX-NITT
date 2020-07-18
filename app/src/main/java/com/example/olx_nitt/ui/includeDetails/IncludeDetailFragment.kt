@@ -5,10 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.olx_nitt.BaseFragment
+import com.example.olx_nitt.ui.BaseFragment
 import com.example.olx_nitt.R
-import com.example.olx_nitt.utilities.Constants.BOOKS
-import com.facebook.appevents.internal.Constants
 import kotlinx.android.synthetic.main.fragment_include_details.*
 
 class IncludeDetailFragment : BaseFragment(), View.OnClickListener {

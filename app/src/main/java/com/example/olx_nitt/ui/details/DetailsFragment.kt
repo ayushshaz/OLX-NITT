@@ -2,12 +2,11 @@ package com.example.olx_nitt.ui.details
 
 import android.content.Intent
 import android.net.Uri
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.olx_nitt.BaseFragment
+import com.example.olx_nitt.ui.BaseFragment
 import com.example.olx_nitt.R
 import com.example.olx_nitt.model.DataItemModel
 import com.example.olx_nitt.ui.PreviewImageActivity
@@ -15,7 +14,6 @@ import com.example.olx_nitt.ui.details.adapter.DetailImagesAdapter
 import com.example.olx_nitt.utilities.Constants
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_details.*
-import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 

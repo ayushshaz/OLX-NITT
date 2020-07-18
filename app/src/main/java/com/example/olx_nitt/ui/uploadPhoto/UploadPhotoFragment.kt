@@ -1,4 +1,4 @@
-package com.example.olx_nitt.uploadPhoto
+package com.example.olx_nitt.ui.uploadPhoto
 
 import android.Manifest
 import android.content.Context.LAYOUT_INFLATER_SERVICE
@@ -15,11 +15,11 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.olx_nitt.BaseFragment
+import com.example.olx_nitt.ui.BaseFragment
 import com.example.olx_nitt.MainActivity
 import com.example.olx_nitt.R
 import com.example.olx_nitt.ui.PreviewImageActivity
-import com.example.olx_nitt.uploadPhoto.adapter.UploadImageAdapter
+import com.example.olx_nitt.ui.uploadPhoto.adapter.UploadImageAdapter
 import com.example.olx_nitt.utilities.Constants
 import com.example.olx_nitt.utilities.OnActivityResultData
 import com.example.olx_nitt.utilities.SharedPref
