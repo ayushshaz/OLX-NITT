@@ -108,6 +108,31 @@
         android:name="com.example.olx_nitt.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_profile_to_settings"
+            app:destination="@id/navigation_settings"
+            app:popUpTo="@id/navigation_profile"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpToInclusive="false"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.olx_nitt.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_setings">
+
+        <action
+            android:id="@+id/action_settings_to_profile"
+            app:destination="@id/navigation_profile"
+            app:popUpTo="@id/navigation_settings"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpToInclusive="true"/>
+
     </fragment>
 
 

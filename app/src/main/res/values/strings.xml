@@ -56,4 +56,14 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="title_profile">Profile</string>
+    <string name="full_name">Full name</string>
+    <string name="email_address">Email Address</string>
+    <string name="phone_number_simple">Phone Number</string>
+    <string name="postal_address">Postal Address</string>
+    <string name="save">Save</string>
+    <string name="enter_name">Enter Full Name</string>
+    <string name="enter_email_address">Enter Email Address</string>
+    <string name="enter_postal_address">Enter Postal Address</string>
+    <string name="saved_success">Saved Successfully</string>
+    <string name="title_settings">Settings</string>
 </resources>

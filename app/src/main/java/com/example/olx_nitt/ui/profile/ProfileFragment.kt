@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.olx_nitt.R
 import com.example.olx_nitt.ui.BaseFragment
@@ -54,7 +55,7 @@ class ProfileFragment : BaseFragment(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when(p0?.id){
                 R.id.ll_settings->{
-
+                    findNavController().navigate(R.id.action_profile_to_settings)
                 }
                 R.id.ll_logout->{
                     showAlertDialogBox()

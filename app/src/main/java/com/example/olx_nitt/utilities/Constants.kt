@@ -25,4 +25,5 @@ object Constants {
     val Id = "id"
     val CREATED_DATE ="createdDate"
     val CURRENCY_SYMBOL = "₹"
+    val USER_ADDRESS = "user_address"
 }
