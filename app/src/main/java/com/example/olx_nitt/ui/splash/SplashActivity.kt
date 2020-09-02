@@ -148,7 +148,7 @@ class SplashActivity: BaseActivity() {
         val geocoder= Geocoder(this, Locale.getDefault())
         try {
             val address=geocoder.getFromLocation(location?.latitude!!,location?.longitude!!,1)
-            cityName=address[0].locality //but theres something wrong wit getting the location also sir in emulator its working fine because emulator doesnt require location okay sir
+            cityName=address[0].locality
         }catch (e:IOException){
             Log.d("locationException","failed")
         }
